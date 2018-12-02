@@ -1,13 +1,20 @@
 <?php
-
+include 'functions.php';
 $actualPage = filter_input(INPUT_POST, "page", FILTER_SANITIZE_STRING);
+$submitData = filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING);
 
 $history = [
+    "error" => [
+        "header" => "Page inconnue /!\\",
+        "text" => "Cette page n'a pas encore été développée ou ne fait pas partie de l'histoire, merci de revenir à l'accueil."
+    ],
+
     "beginning" => [
         "header" => "Bienvenue sur HeroStory V2 !",
         "text" => "Tout au long de l'histoire, vous serez confronté à des choix qui auront tous un impact sur le scénario de fin, veillez donc à faire les bons choix ou sinon... c'est une mort certaine qui" .
         " vous attend !",
-        "submitText" => "Démarrer l'histoire"
+        "submitText" => "Démarrer l'histoire",
+        "submitValue" => "start"
     ],
 
     "start" => [
@@ -20,11 +27,25 @@ $history = [
     ]
 ];
 
-$actualPage = isset($actualPage) ? $actualPage : "beginning";
-echo $actualPage;
+if (!isset($actualPage)) {
+    $actualPage = "beginning";
+}
+
+if (isset($submitData) && $submitData != 'Continuer') {
+    $actualPage = $submitData;
+}
+
+if (!array_key_exists($actualPage, $history)) {
+    $actualPage = 'error';
+}
+
+// $actualPage = isset($actualPage) ? $actualPage : "beginning";
+// echo $actualPage;
 $pageHeader = $history[$actualPage]['header'];
 $pageText = $history[$actualPage]['text'];
-$choices = isset($history[$actualPage]['choices']) ? $choices : null;
+$choices = array_key_exists('choices', $history[$actualPage]) ? $history[$actualPage]['choices'] : null;
+$submitText = array_key_exists('submitText', $history[$actualPage]) ? $history[$actualPage]['submitText'] : null;
+$submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history[$actualPage]['submitValue'] : null;
 
 ?>
 <!DOCTYPE html>
@@ -36,20 +57,25 @@ $choices = isset($history[$actualPage]['choices']) ? $choices : null;
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
+        <?= GenerateHeader() ?>
         <div id="idQuestion">
             <h2><?= $pageHeader ?></h2>
             <h3><?= $pageText ?></h3>
             <form action="index.php" method="POST">
                 <?php
-                
+
                 if (isset($choices)) {
-                    foreach ($history[$actualPage]['choices'] as $key => $value) {
+                    foreach ($choices as $key => $value) {
                         echo "<input type='radio' id='idRadio". $key ."' name='page' value='$key'><label for='idRadio". $key ."'>$value</label>";
                     }
                 }
-                ?>
 
-                <input type=submit name="submit" value="<?= $history[$actualPage]['submitText'] ?>">
+                if (isset($submitText) && isset($submitValue)) {
+                    echo "<button type=submit name='submit' value='$submitValue'>$submitText</button>";
+                } else {
+                    echo "<input type=submit name='submit' value='Continuer'>";
+                }
+                ?>
 
                 <!-- <?php
                 if (isset($leftImage) && isset($rightImage)) {
