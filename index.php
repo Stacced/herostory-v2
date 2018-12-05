@@ -18,7 +18,7 @@ $history = [
     ],
 
     "start" => [
-        "header" => "Tu tu utututututut",
+        "header" => "Vous arrivez en ville",
         "text" => "lolololoolooololololololol",
         "choices" => [
             "left" => "Aller à gauche",
@@ -27,7 +27,7 @@ $history = [
     ]
 ];
 
-if (!isset($actualPage)) {
+if (!isset($actualPage) && $submitData != 'Continuer') {
     $actualPage = "beginning";
 }
 
@@ -55,6 +55,7 @@ $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="css/style.css" rel="stylesheet" type="text/css"/>
+        <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
         <?= GenerateHeader() ?>
@@ -77,7 +78,8 @@ $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history
                 }
                 ?>
 
-                <!-- <?php
+                <?php
+                /*
                 if (isset($leftImage) && isset($rightImage)) {
                     echo "<div id='idImgContainer'>";
                     echo "<img id='id$leftImage' src='$leftImage' alt='$leftImage'>";
@@ -91,7 +93,8 @@ $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history
                     echo "</div>";
                     echo "<br>";
                 }
-                ?> -->
+                */
+                ?>
             </form>
         </div>
     </body>

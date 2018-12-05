@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Amatic+SC');
+
+header {
+    height: 100px;
+    background-color: rgb(2, 46, 64);
+    color: white;
+    font-family: Amatic SC, sans-serif;
+    -webkit-box-shadow: 0 10px 10px #888;
+}
+
+#idBatmanLeft, #idBatmanRight {
+    width: 100px;
+    height: 100px;
+    pointer-events: none;
+}
+
+#idBatmanLeft {
+    float: left;
+    transform: scale(-1, 1);
+}
+
+#idBatmanRight {
+    float: right;
+}
+
+#idDisclaimer {
+    float: right;
+    margin: 30px 10px 0 0;
+    font-size: 24pt;
+}
+
+header ul {
+    float: left;
+    margin-top: 9px;
+    font-size: 42pt;
+    margin-bottom: 0;
+}
+
+header li {
+    display: inline-block;
+    margin-left: 40px;
+
+    padding: 5px 5px 5px 5px;
+
+    -webkit-transition-duration: 0.4s;
+    -moz-transition-duration: 0.4s;
+    -o-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+}
+
+header li:hover {
+    background-color: white;
+    border-radius: 8px;
+    color: rgb(2, 46, 64);
+}
+
+header a {
+    text-decoration: none;
+    color: inherit;
+}

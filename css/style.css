@@ -2,46 +2,5 @@
 
 body {
     margin: 0;
-}
-
-header {
-    height: 100px;
-    background-color: rgb(2, 46, 64);
-    color: white;
-    font-family: Raleway, sans-serif;
-}
-
-header #idDisclaimer {
-    float: right;
-    margin: 10px 10px 0 0;
-}
-
-header ul {
-    float: left;
-    margin-top: 19px;
-    font-size: 32pt;
-    margin-bottom: 0;
-}
-
-header li {
-    display: inline-block;
-    margin-left: 40px;
-
-    padding: 5px 5px 5px 5px;
-
-    -webkit-transition-duration: 0.4s;
-    -moz-transition-duration: 0.4s;
-    -o-transition-duration: 0.4s;
-    transition-duration: 0.4s;
-}
-
-header li:hover {
-    background-color: white;
-    border-radius: 8px;
-    color: rgb(2, 46, 64);
-}
-
-header a {
-    text-decoration: none;
-    color: inherit;
+    background-color: #d9d9d9;
 }

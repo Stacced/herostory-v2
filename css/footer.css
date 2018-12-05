@@ -1,0 +1,9 @@
+#idQuestion {
+    min-height: calc(100vh - 120px);
+    margin-bottom: -50px;
+}
+
+footer {
+    height: 50px;
+    background-color: rgb(2, 46, 64);
+}
