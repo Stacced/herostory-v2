@@ -6,7 +6,9 @@ $submitData = filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING);
 $history = [
     "error" => [
         "header" => "Page inconnue /!\\",
-        "text" => "Cette page n'a pas encore été développée ou ne fait pas partie de l'histoire, merci de revenir à l'accueil."
+        "text" => "Cette page n'a pas encore été développée ou ne fait pas partie de l'histoire, merci de revenir à l'accueil.",
+        "submitText" => "Retourner à l'accueil",
+        "submitValue" => "beginning"
     ],
 
     "beginning" => [
@@ -21,8 +23,8 @@ $history = [
         "header" => "Vous arrivez en ville",
         "text" => "lolololoolooololololololol",
         "choices" => [
-            "left" => "Aller à gauche",
-            "right" => "Aller à droite"
+            "left" => [ "text" => "Aller à gauche", "imgLink" => "img/batman.png" ],
+            "right" => [ "text" => "Aller à droite" ]
         ]
     ]
 ];
@@ -59,16 +61,37 @@ $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history
     </head>
     <body>
         <?= GenerateHeader() ?>
-        <div id="idQuestion">
-            <h2><?= $pageHeader ?></h2>
-            <h3><?= $pageText ?></h3>
+        <div id="idPageContentContainer">
+            <div id="idPageHeaderContainer">
+                <h2><?= $pageHeader ?></h2>
+                <h3><?= $pageText ?></h3>
+            </div>
+            
             <form action="index.php" method="POST">
                 <?php
-
                 if (isset($choices)) {
+                    echo "<div id='idChoicesContainer'>";
+
                     foreach ($choices as $key => $value) {
-                        echo "<input type='radio' id='idRadio". $key ."' name='page' value='$key'><label for='idRadio". $key ."'>$value</label>";
+                        $key = ucfirst($key);
+                        echo "<div id=idChoiceContainer". $key ." style='width: 300px;'>";
+
+                        if (isset($value['imgLink'])) {
+                            echo "<figure id='idFigure". $key ."'>";
+                            echo "<img src='". $value['imgLink'] ."' style='max-width: 100%' >";
+                            echo "<figcaption>";
+                            echo "<input type='radio' id='idRadio". $key ."' name='page' value='$key'><label for='idRadio". $key ."'>". $value['text'] ."</label>";
+                            echo "</figcaption>";
+                            echo "</figure>";
+                        } else {
+                            echo "<input type='radio' id='idRadio". $key ."' name='page' value='$key'><label for='idRadio". $key ."'>". $value['text'] ."</label>";
+                        }
+
+                        echo "</div>";
                     }
+
+                    echo "</div>";
+                    echo "<br>";
                 }
 
                 if (isset($submitText) && isset($submitValue)) {
