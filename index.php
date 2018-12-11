@@ -45,6 +45,7 @@ if (!array_key_exists($actualPage, $history)) {
 // echo $actualPage;
 $pageHeader = $history[$actualPage]['header'];
 $pageText = $history[$actualPage]['text'];
+$pageImageLink = array_key_exists('pageImageLink', $history[$actualPage]) ? $history[$actualPage]['pageImageLink'] : null;
 $choices = array_key_exists('choices', $history[$actualPage]) ? $history[$actualPage]['choices'] : null;
 $submitText = array_key_exists('submitText', $history[$actualPage]) ? $history[$actualPage]['submitText'] : null;
 $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history[$actualPage]['submitValue'] : null;
@@ -66,9 +67,13 @@ $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history
                 <h2><?= $pageHeader ?></h2>
                 <h3><?= $pageText ?></h3>
             </div>
-            
+
             <form action="index.php" method="POST">
                 <?php
+                if (isset($pageImageLink)) {
+                    echo "<img id='idPageImage' src='$pageImageLink'><br><br>";
+                }
+
                 if (isset($choices)) {
                     echo "<div id='idChoicesContainer'>";
 
@@ -95,9 +100,9 @@ $submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history
                 }
 
                 if (isset($submitText) && isset($submitValue)) {
-                    echo "<button type=submit name='submit' value='$submitValue'>$submitText</button>";
+                    echo "<button id='idSubmit' type=submit name='submit' value='$submitValue'>$submitText</button>";
                 } else {
-                    echo "<input type=submit name='submit' value='Continuer'>";
+                    echo "<input id='idSubmit' type=submit name='submit' value='Continuer'>";
                 }
                 ?>
 
