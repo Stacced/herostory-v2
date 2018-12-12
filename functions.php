@@ -26,3 +26,23 @@ function GenerateFooter() {
     echo "<div id='idDisclaimer'>Designed by Laszlo Dindeleux</div>";
     echo "</footer>";
 }
+
+function RollTheDice($sides) {
+    return rand(1, $sides);
+}
+
+function FlipTheCoin() {
+    $result = "";
+    $forCount = 0;
+    for ($i=0; $i < 500; $i++) {
+        $forCount += rand(1, 500);
+    }
+
+    if ($forCount / 500 >= 250) {
+        $result = "heads";
+    } else {
+        $result = "tails";
+    }
+
+    return $result;
+}
