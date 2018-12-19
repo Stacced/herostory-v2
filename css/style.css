@@ -7,16 +7,14 @@ body {
 
 #idPageContentContainer {
     text-align: center;
+    margin-top: 20px;
 }
 
-/*
-
-  PAGE TEXT STUFF
-
-*/
+/* PAGE TEXT STUFF */
 
 #idPageHeaderContainer {
     font-family: Maven Pro, sans-serif;
+    padding: 5px 5px 5px 5px;
 }
 
 #idPushImg {
@@ -24,18 +22,18 @@ body {
     min-height: 300px;
 }
 
-/*
-
-  CHOICES CONTAINER & RELATED STUFF
-
-*/
+/* CHOICES CONTAINER & RELATED STUFF */
 
 #idChoicesContainer {
-    background-color: rgb(2, 46, 64);
     display: inline-flex;
+    flex-wrap: wrap;
+    overflow: hidden;
     justify-content: space-between;
+
+    min-width: 300px;
     padding: 15px;
     border-radius: 8px;
+    background-color: rgb(2, 46, 64);
     color: white;
     font-size: 12pt;
     font-family: Nanum Gothic, sans-serif;
@@ -50,11 +48,7 @@ figure img, #idPageImage {
     max-height: 300px;
 }
 
-/*
-
-  SUBMIT BUTTON STYLING
-
-*/
+/* SUBMIT BUTTON STYLING */
 
 [type=submit] {
     margin-top: 20px;

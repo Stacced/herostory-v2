@@ -1,7 +1,7 @@
 <?php
 $headerElements = [
     "Accueil" => "index.php",
-    "Github" => "https://github.com/Stacced",
+    "Github" => "https://github.com/Stacced/herostory-v2",
     "CFPTi" => "https://edu.ge.ch/site/cfpt-informatique/"
 ];
 

@@ -1,102 +1,48 @@
 <?php
+session_start();
 include 'functions.php';
+
+/* POST VARIABLES DECLARATION */
 $actualPage = filter_input(INPUT_POST, "page", FILTER_SANITIZE_STRING);
 $submitData = filter_input(INPUT_POST, "submit", FILTER_SANITIZE_STRING);
 
-$history = [
-    "error" => [
-        "header" => "Page inconnue ⚠️",
-        "text" => "Cette page n'a pas encore été développée ou ne fait pas partie de l'histoire, merci de revenir à l'accueil.",
-        "choices" => null,
-        "submitText" => "Retourner à l'accueil",
-        "submitValue" => "beginning",
-        "pageImageLink" => null
-    ],
+/* STORY */
+$jsonStory = file_get_contents("story.json");
+$story = json_decode($jsonStory, true);
 
-    "beginning" => [
-        "header" => "Bienvenue sur HeroStory V2 !",
-        "text" => "Tout au long de l'histoire, vous serez confronté à des choix qui auront tous un impact sur le scénario de fin, veillez donc à faire les bons choix ou sinon... c'est une mort certaine qui" .
-        " vous attend !",
-        "choices" => null,
-        "submitText" => "Démarrer l'histoire",
-        "submitValue" => "start",
-        "pageImageLink" => null
-    ],
+// file_put_contents("story.json", json_encode($story, JSON_UNESCAPED_UNICODE));
 
-    "start" => [
-        "header" => "Vous devez tout d'abord choisir entre trois héros",
-        "text" => "Le choix de votre personnage impactera le déroulement de votre histoire",
-        "choices" => [
-            "batman" => [ "text" => "Batman", "imgLink" => "img/batman.png" ],
-            "robin" => [ "text" => "Robin", "imgLink" => "img/robin.png" ],
-            "joker" => [ "text" => "Joker", "imgLink" => "img/joker.jpg" ]
-        ],
-        "submitText" => null,
-        "submitValue" => null,
-        "pageImageLink" => null
-    ],
-
-    "batman" => [
-        "header" => "Vous avez choisi Batman",
-        "text" => "Vous vous réveillez dans la peau de Batman. Cependant, vous êtes ligoté par le Joker. Il vous garantit que si vous réussissez à le battre à un jeu, il vous laissera partir. Quel jeu choissez-vous ?",
-        "choices" => [
-            "rollthedice" => [ "text" => "Jouer aux dés", "imgLink" => "img/dices.jpg" ],
-            "flipcoin" => [ "text" => "Jouer à pile ou face", "imgLink" => "img/coinflip.png" ]
-        ],
-        "submitText" => null,
-        "submitValue" => null,
-        "pageImageLink" => null
-    ],
-
-    "rollthedice" => [
-        "header" => "Vous lancez le dé et...",
-        "text" => null,
-        "choices" => null,
-        "submitText" => "Merci d'avoir joué !",
-        "submitValue" => "beginning",
-        "pageImageLink" => null
-    ],
-
-    "flipcoin" => [
-        "header" => "Vous lancez la pièce en l'air et...",
-        "text" => null,
-        "choices" => null,
-        "submitText" => "Merci d'avoir joué !",
-        "submitValue" => "beginning",
-        "pageImageLink" => null
-    ]
-];
-
-file_put_contents("story.json", json_encode($history, JSON_UNESCAPED_UNICODE));
-
+/* PAGE SELECTION */
 if (is_null($actualPage) && $submitData != 'Continuer') {
+    // First time site has been loaded => beginning page
     $actualPage = "beginning";
 }
 
+// Value attribute of submit input contains a page
 if (!is_null($submitData) && $submitData != 'Continuer') {
     $actualPage = $submitData;
 }
 
-if (!array_key_exists($actualPage, $history)) {
+// If user submitted without choosing, redirecting to the same page
+if (is_null($actualPage) && $submitData == 'Continuer') {
+    $actualPage = $_SESSION['page'];
+}
+
+// If the page doesn't exist, printing an error message
+if (!array_key_exists($actualPage, $story)) {
     $actualPage = 'error';
 }
 
-/*
-    LOCAL VARS ASSIGNMENT
-*/
+// Keeping page status
+$_SESSION['page'] = $actualPage;
 
-$pageHeader = $history[$actualPage]['header'];
-$pageText = $history[$actualPage]['text'];
-/*
-$pageImageLink = array_key_exists('pageImageLink', $history[$actualPage]) ? $history[$actualPage]['pageImageLink'] : null;
-$choices = array_key_exists('choices', $history[$actualPage]) ? $history[$actualPage]['choices'] : null;
-$submitText = array_key_exists('submitText', $history[$actualPage]) ? $history[$actualPage]['submitText'] : null;
-$submitValue = array_key_exists('submitValue', $history[$actualPage]) ? $history[$actualPage]['submitValue'] : null;
-*/
-$pageImageLink = is_null($history[$actualPage]['pageImageLink']) ? null : $history[$actualPage]['pageImageLink'];
-$choices = is_null($history[$actualPage]['choices']) ? null : $history[$actualPage]['choices'];
-$submitText = is_null($history[$actualPage]['submitText']) ? null : $history[$actualPage]['submitText'];
-$submitValue = is_null($history[$actualPage]['submitValue']) ? null : $history[$actualPage]['submitValue'];
+/* LOCAL VARS ASSIGNMENT */
+$pageHeader = $story[$actualPage]['header'];
+$pageText = $story[$actualPage]['text'];
+$pageImageLink = is_null($story[$actualPage]['pageImageLink']) ? null : $story[$actualPage]['pageImageLink'];
+$choices = is_null($story[$actualPage]['choices']) ? null : $story[$actualPage]['choices'];
+$submitText = is_null($story[$actualPage]['submitText']) ? null : $story[$actualPage]['submitText'];
+$submitValue = is_null($story[$actualPage]['submitValue']) ? null : $story[$actualPage]['submitValue'];
 
 /*
     SPECIAL PAGES CHECKS

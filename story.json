@@ -1,1 +1,188 @@
-{"error":{"header":"Page inconnue ⚠️","text":"Cette page n'a pas encore été développée ou ne fait pas partie de l'histoire, merci de revenir à l'accueil.","choices":null,"submitText":"Retourner à l'accueil","submitValue":"beginning","pageImageLink":null},"beginning":{"header":"Bienvenue sur HeroStory V2 !","text":"Tout au long de l'histoire, vous serez confronté à des choix qui auront tous un impact sur le scénario de fin, veillez donc à faire les bons choix ou sinon... c'est une mort certaine qui vous attend !","choices":null,"submitText":"Démarrer l'histoire","submitValue":"start","pageImageLink":null},"start":{"header":"Vous devez tout d'abord choisir entre trois héros","text":"Le choix de votre personnage impactera le déroulement de votre histoire","choices":{"batman":{"text":"Batman","imgLink":"img\/batman.png"},"robin":{"text":"Robin","imgLink":"img\/robin.png"},"joker":{"text":"Joker","imgLink":"img\/joker.jpg"}},"submitText":null,"submitValue":null,"pageImageLink":null},"batman":{"header":"Vous avez choisi Batman","text":"Vous vous réveillez dans la peau de Batman. Cependant, vous êtes ligoté par le Joker. Il vous garantit que si vous réussissez à le battre à un jeu, il vous laissera partir. Quel jeu choissez-vous ?","choices":{"rollthedice":{"text":"Jouer aux dés","imgLink":"img\/dices.jpg"},"flipcoin":{"text":"Jouer à pile ou face","imgLink":"img\/coinflip.png"}},"submitText":null,"submitValue":null,"pageImageLink":null},"rollthedice":{"header":"Vous lancez le dé et...","text":null,"choices":null,"submitText":"Merci d'avoir joué !","submitValue":"beginning","pageImageLink":null},"flipcoin":{"header":"Vous lancez la pièce en l'air et...","text":null,"choices":null,"submitText":"Merci d'avoir joué !","submitValue":"beginning","pageImageLink":null}}
+{
+   "error":{
+      "header":"Page inconnue ⚠️",
+      "text":"Cette page n'a pas encore été développée ou ne fait pas partie de l'histoire, merci de revenir à l'accueil.",
+      "choices":null,
+      "submitText":"Retourner à l'accueil",
+      "submitValue":"beginning",
+      "pageImageLink":null
+   },
+   "beginning":{
+      "header":"Bienvenue sur HeroStory V2 !",
+      "text":"Tout au long de l'histoire, vous serez confronté à des choix qui auront tous un impact sur le scénario de fin, veillez donc à faire les bons choix ou sinon... c'est une mort certaine qui vous attend !",
+      "choices":null,
+      "submitText":"Démarrer l'histoire",
+      "submitValue":"start",
+      "pageImageLink":null
+   },
+   "start":{
+      "header":"Vous devez tout d'abord choisir entre trois héros",
+      "text":"Le choix de votre personnage impactera le déroulement de votre histoire",
+      "choices":{
+         "batman":{
+            "text":"Batman",
+            "imgLink":"img\/batman.png"
+         },
+         "robin":{
+            "text":"Robin",
+            "imgLink":"img\/robin.png"
+         },
+         "joker":{
+            "text":"Joker",
+            "imgLink":"img\/joker.jpg"
+         }
+      },
+      "submitText":null,
+      "submitValue":null,
+      "pageImageLink":null
+   },
+   "batman":{
+      "header":"Vous avez choisi Batman",
+      "text":"Vous vous réveillez dans la peau de Batman. Cependant, vous êtes ligoté par le Joker. Il vous garantit que si vous réussissez à le battre à un jeu, il vous laissera partir. Quel jeu choissez-vous ?",
+      "choices":{
+         "rollthedice":{
+            "text":"Jouer aux dés",
+            "imgLink":"img\/dices.jpg"
+         },
+         "flipcoin":{
+            "text":"Jouer à pile ou face",
+            "imgLink":"img\/coinflip.png"
+         }
+      },
+      "submitText":null,
+      "submitValue":null,
+      "pageImageLink":null
+   },
+   "rollthedice":{
+      "header":"Vous lancez le dé et...",
+      "text":null,
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":null
+   },
+   "flipcoin":{
+      "header":"Vous lancez la pièce en l'air et...",
+      "text":null,
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":null
+   },
+   "robin":{
+      "header":"Vous avez choisi Robin",
+      "text":"Vous êtes dans la Batcave avec Batman, en train de nettoyer votre matériel quand soudain une alarme retentit. Le Joker a décidé de braquer une banque ! Vite, quel véhicule utiliser pour rejoindre la banque ?",
+      "choices":{
+         "batmobile":{
+            "text":"Prendre la Batmobile",
+            "imgLink":"img\/batmobile.jpg"
+         },
+         "bat":{
+            "text":"Prendre la Bat",
+            "imgLink":"img\/bat.jpg"
+         }
+      },
+      "submitText":null,
+      "submitValue":null,
+      "pageImageLink":null
+   },
+   "batmobile":{
+      "header":"Vous démarrez la Batmobile et foncez",
+      "text":"En arrivant sur place, vous trouvez le Joker, qui commence à vous tirer dessus. Vous n'avez que peu de temps pour réagir, que faites-vous ?",
+      "choices":{
+         "fightjoker":{
+            "text":"Riposter",
+            "imgLink":"img\/gunfight.jpg"
+         },
+         "getcoverjoker":{
+            "text":"Se mettre à couvert",
+            "imgLink":"img\/getcover.jpg"
+         }
+      },
+      "submitText":null,
+      "submitValue":null,
+      "pageImageLink":null
+   },
+   "bat":{
+      "header":"Vous démarrez la Bat...",
+      "text":"... quand soudain les moteurs prennent feu, vous entraînant vers une mort certaine, car Alfred avait oublié de remettre les parachutes de secours...",
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":"img\/planecrash.jpg"
+   },
+   "fightjoker":{
+      "header":"Vous échangez des tirs pendant quelques minutes...",
+      "text":"... quand soudain un de ses acolytes vous suprend par derrière et vous tue tous les deux... R.I.P",
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":"img\/death.png"
+   },
+   "getcoverjoker":{
+      "header":"Vous vous mettez à couvert derrière une voiture",
+      "text":"Vous contournez le Joker et arrivez dans son dos, puis le maîtrisez. Victoire !",
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":"img\/capturedjoker.png"
+   },
+   "joker":{
+      "header":"Vous avez choisi le Joker",
+      "text":"Vous êtes dans votre repaire, en train de planifier votre prochain plan machiavélique, mais vous hésitez entre deux idées",
+      "choices":{
+         "townhallattack":{
+            "text":"Voler le contenu du coffre fort de la mairie",
+            "imgLink":"img\/townhall.jpg"
+         },
+         "powerplantattack":{
+            "text":"Attaquer la centrale électrique",
+            "imgLink":"img\/powerplant.jpg"
+         }
+      },
+      "submitText":null,
+      "submitValue":null,
+      "pageImageLink":null
+   },
+   "townhallattack":{
+      "header":"Vous choisissez de voler le contenu du coffre fort de la mairie",
+      "text":"De quelle manière allez-vous procéder ?",
+      "choices":{
+         "brutaljoker":{
+            "text":"Force brute",
+            "imgLink":"img\/force.jpg"
+         },
+         "stealthjoker":{
+            "text":"Discrètement",
+            "imgLink":"img\/stealth.png"
+         }
+      },
+      "submitText":null,
+      "submitValue":null,
+      "pageImageLink":null
+   },
+   "brutaljoker":{
+      "header":"Vous choisissez la force brute",
+      "text":"Votre plan fin prêt, vous recrutez des gros bras et partez à l'attaque de la mairie... pour vous retrouver nez à nez avec la police, qui avait été informée de votre braquage. Un de vos hommes vous a vendu !",
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":"img\/surrounded.jpg"
+   },
+   "stealthjoker":{
+      "header":"Vous choisissez la manière discrète",
+      "text":"Vous décidez d'attaquer le soir même, seul. Vous passez par un velux laissé ouvert par un associé, et réussissez à ouvrir le coffre sans vous faire repérer. Victoire !",
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":"img\/escape.jpg"
+   },
+   "powerplantattack":{
+      "header":"Vous décidez d'attaquer la centrale électrique de la ville...",
+      "text":"... mais soudain, des policiers débarquent dans votre planque, et vous arrêtent. En même temps, vous avez cherché les plans de la centrale sur Internet sans être en navigation privée !",
+      "choices":null,
+      "submitText":"Merci d'avoir joué !",
+      "submitValue":"beginning",
+      "pageImageLink":"img\/arrested.jpg"
+   }
+}
