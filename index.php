@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'functions.php';
+const ADD_HEADER = true;
 
 /* POST VARIABLES DECLARATION */
 $actualPage = filter_input(INPUT_POST, "page", FILTER_SANITIZE_STRING);
@@ -84,7 +85,7 @@ switch ($actualPage) {
         <link href="css/header.css" rel="stylesheet" type="text/css"/>
     </head>
     <body>
-        <?= GenerateHeader() ?>
+        <?= ADD_HEADER ? GenerateHeader() : "" ?>
         <div id="idPageContentContainer">
             <div id="idPageHeaderContainer">
                 <h2><?= $pageHeader ?></h2>

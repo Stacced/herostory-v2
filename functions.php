@@ -1,9 +1,10 @@
 <?php
 $headerElements = [
     "Accueil" => "index.php",
-    "Github" => "https://github.com/Stacced/herostory-v2",
+    "Github V1" => "https://github.com/Stacced/herostory",
+    "Github V2" => "https://github.com/Stacced/herostory-v2",
     "CFPTi" => "https://edu.ge.ch/site/cfpt-informatique/"
-];
+  ];
 
 function GenerateHeader() {
     global $headerElements; // récupère la variable de scope globale
